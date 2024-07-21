@@ -1,0 +1,46 @@
+h1, #status {
+  text-align: center;
+  margin:  20px 0;
+  font-family: monospace  ;
+  font-size: 36px;
+}
+#board {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 10px;
+  width: 300px;
+  margin: 0 auto;
+}
+
+.cell {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100px;
+  background-color: #f0f0f0;
+  font-size: 24px;
+  cursor: pointer;
+  border: 1px solid #ccc ;
+}
+
+.cell:hover {
+  background-color: #e0e0e0;
+}
+.cell:active {
+  background-color: #d0d0d0;
+}
+
+#reset {
+  display: block;
+  margin: 20px auto;
+  color: blueviolet;
+  padding: 10px 20px;
+  font-size: 16px;
+  background-color: #f0f;
+  cursor: pointer;
+  border: 1px solid #ccc;
+}
+#reset:hover {
+  background-color: #e0e0f0;
+  transition: cubic-bezier(0.215  0.61  0.355  1) 0.5s;
+}
