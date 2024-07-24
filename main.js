@@ -18,6 +18,27 @@ let gameState = {
   draw: false,  
 };
 
+function renderGame() {
+  const cells = document.querySelectorAll(".cell");
+  cells.forEach((cell, index) => {
+    cell.textContent = gameState[index];
+  });
+
+  const player1Score = document.querySelector(".player1-score");
+  const player2Score = document.querySelector(".player2-score");
+  player1Score.textContent = gameState.player1.score;
+  player2Score.textContent = gameState.player2.score;
+
+  const winner = document.querySelector(".winner");
+  if (gameState.winner) {
+    winner.textContent = `${gameState.winner} wins!`;
+  } else if (gameState.draw) {
+    winner.textContent = "It's a draw!";
+  } else {
+    winner.textContent = "";
+  }
+}
+
 // Write a function to render the game board based on the game state array. This function should update the innerHTML of the board's cells to show an "X" or "O" based on the array's values.
 document.addEventListener("DOMContentLoaded", () => {
   const cells = document.querySelectorAll(".cell");
