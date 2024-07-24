@@ -19,20 +19,15 @@ let gameState = {
 };
 
 // Write a function to render the game board based on the game state array. This function should update the innerHTML of the board's cells to show an "X" or "O" based on the array's values.
-
-function renderGame() {
-  const player1 = document.querySelector("#player1");
-  const player2 = document.querySelector("#player2");
-
-  player1.innerHTML = `${gameState.player1.name}: ${gameState.player1.score}`;
-  player2.innerHTML = `${gameState.player2.name}: ${gameState.player2.score}`;
-
+document.addEventListener("DOMContentLoaded", () => {
   const cells = document.querySelectorAll(".cell");
-  // add event listener to each cell
   cells.forEach((cell, index) => {
-    cell.innerHTML = gameState[index];
+    cell.setAttribute('data-index', index);
+    cell.addEventListener('click', handleCellClick);
   });
-}
+  gameState.currentPlayer = "X"; // Starting with player X
+  renderGame();
+});
 
 //  Write a function to update the game state array based on the cell that was clicked. This function should update the array with the current player's symbol ("X" or "O") and then call the renderGame function.
 
